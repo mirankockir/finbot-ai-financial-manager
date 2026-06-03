@@ -141,7 +141,11 @@ async function main() {
   } else {
     console.log("Starting in production mode serving pre-built assets...");
     const distPath = path.join(process.cwd(), "dist");
-    app.use(express.static(distPath));
+    app.use(express.static(distPath, { dotfiles: "allow" }));
+    app.get("/.well-known/assetlinks.json", (req, res) => {
+      res.setHeader("Content-Type", "application/json");
+      res.sendFile(path.join(distPath, ".well-known", "assetlinks.json"));
+    });
     app.get("*", (req, res) => {
       res.sendFile(path.join(distPath, "index.html"));
     });
