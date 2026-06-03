@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    
+    <!-- PWA Meta Etiketleri -->
+    <meta name="theme-color" content="#006c75">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="FinBot">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3258/3258443.png">
+    <link rel="manifest" href="manifest.json">
+
+    <title>FinBot AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet" />
+    <script>
+        window.process = { 
+          env: { 
+            NODE_ENV: 'production',
+            API_KEY: '' 
+          } 
+        };
+        
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#006c75",
+                        secondary: "#2b8cee",
+                        "bg-dark": "#0a1112",
+                        "card-dark": "#132122",
+                        "accent-green": "#81c784",
+                        "accent-red": "#e57373",
+                        "neon-green": "#39ff14",
+                        "navy-dark": "#0f172a"
+                    },
+                    fontFamily: {
+                        manrope: ["Manrope", "sans-serif"],
+                        grotesk: ["Space Grotesk", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* App hissi için body scrolling'i engelle, içeriği kaydır */
+        html, body {
+            overflow: hidden;
+            height: 100%;
+            position: fixed;
+            width: 100%;
+        }
+
+        body { 
+          @apply font-manrope bg-slate-50 text-navy-dark dark:bg-bg-dark dark:text-white transition-colors duration-500;
+          -webkit-tap-highlight-color: transparent;
+          padding-top: env(safe-area-inset-top);
+          padding-bottom: env(safe-area-inset-bottom);
+        }
+        
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+          display: inline-block;
+          line-height: 1;
+        }
+
+        #root {
+            height: 100%;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+</head>
+<body class="light">
+    <div id="root"></div>
+    <script src="index.tsx" type="module"></script>
+</body>
+</html>

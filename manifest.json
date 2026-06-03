@@ -1,0 +1,25 @@
+
+{
+  "name": "FinBot AI Financial Manager",
+  "short_name": "FinBot",
+  "description": "Yapay zeka destekli kişisel finans asistanı.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a1112",
+  "theme_color": "#006c75",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3258/3258443.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3258/3258443.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
